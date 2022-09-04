@@ -1,0 +1,11 @@
+.suckless/dwm/*.o
+.suckless/dwm/dwm
+
+.suckless/dmenu/*.o
+.suckless/dmenu/dmenu
+
+.suckless/st/*.o
+.suckless/st/st
+
+
+.suckless/slstatus

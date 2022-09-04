@@ -1,0 +1,65 @@
+!! dwm default
+dwm.normfgcolor: 	#bbbbbb
+dwm.normbgcolor: 	#222222
+dwm.normbordercolor: 	#444444
+dwm.selfgcolor: 	#efefef
+!! red
+! dwm.selbgcolor: 	#a1454a
+!! original
+! dwm.selbgcolor: 	#005577
+!! dark
+dwm.selbgcolor: 	#222222
+dwm.selbordercolor: 	#e7e7e7
+
+!! Note: st settings currently have no effect without the xrdb patch.
+! st.termname: st-256color
+! st.borderpx: 2
+
+!! Transparency (0-1):
+st.alpha: 1
+st.alphaOffset: 0
+
+st.font: firacode-14;
+
+!! term default:
+*.foreground:  #e7e7e7
+*.background:  #181818
+*.color0:      #1f1f1f
+*.color8:      #d6dbe5
+*.color1:      #ca503f
+*.color9:      #de352e
+*.color2:      #2dc55e
+*.color10:     #1dd361
+*.color3:      #f0ca70
+*.color11:     #e8c36c
+*.color4:      #6785be
+*.color12:     #5d79ac
+*.color5:      #4e5ab7
+*.color13:     #5350b9
+*.color6:      #4399b9
+*.color14:     #3c89a5
+*.color7:      #d6dbe5
+*.color15:     #ffffff
+*.colorBD:     #e7e7e7
+*.cursorColor: white
+
+!! gruvbox:
+!! *.color0: #1d2021
+!! *.color1: #cc241d
+!! *.color2: #98971a
+!! *.color3: #d79921
+!! *.color4: #458588
+!! *.color5: #b16286
+!! *.color6: #689d6a
+!! *.color7: #a89984
+!! *.color8: #928374
+!! *.color9: #fb4934
+!! *.color10: #b8bb26
+!! *.color11: #fabd2f
+!! *.color12: #83a598
+!! *.color13: #d3869b
+!! *.color14: #8ec07c
+!! *.color15: #ebdbb2
+!! *.background: #282828
+!! *.foreground: white
+!! *.cursorColor: white
