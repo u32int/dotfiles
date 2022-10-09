@@ -18,7 +18,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static int showbar            = 1;     /* 0 means no bar */
 static int topbar             = 1;     /* 0 means bottom bar */
-static char font[]            = "JetBrains Mono Nerd Font:size=11";
+static char font[]            = "monospace:size=11";
 static char dmenufont[]       = "FiraSans:size=13";
 static const char *fonts[]          = { font };
 
@@ -106,6 +106,10 @@ static const char *browsercmd[]  = { "firefox", NULL };
 // misc
 static const char *actuallyquit[] = { "pkill", "-f", "dwm-loop.sh", NULL };
 
+// maim screenshots
+static const char scr_clipselect[] = "maim -s | xclip -selection clipboard -t image/png";
+static const char scr_filefull[] = "maim ~/img/screen/$(date +%s).png";
+
 // audio
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -168,7 +172,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-    { MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
+        { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -189,6 +193,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	// Apps
 	{ MODKEY,                       XK_i,      spawn,          {.v = browsercmd } },
+        // Screenshots
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(scr_clipselect) },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD(scr_filefull) },
 	// Reload without killing X
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} }, // reload
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = actuallyquit } },
@@ -216,5 +223,5 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	{ ClkLtSymbol,          0,              Button1,        cyclelayout,    {.i = +1} },
 };
-
