@@ -2,6 +2,7 @@
 .suckless/dwm/dwm
 
 .suckless/dmenu/*.o
+.suckless/dmenu/stest
 .suckless/dmenu/dmenu
 
 .suckless/st/*.o

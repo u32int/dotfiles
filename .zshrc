@@ -36,6 +36,7 @@ alias la="ls -alh --color"
 alias ll="ls -lh --color"
 alias nb="newsboat"
 alias py="python3"
+alias fz='xdg-open $(fzf --height 40% --reverse)'
 
 # aliases related to local network. Irrelevant for other deployments.
 # source ~/.shell-local-alias
@@ -45,7 +46,6 @@ alias py="python3"
 
 # -- Path --
 # append
-path+=('/var/lib/flatpak/exports/bin' "/home/$USER/.cargo/bin" "/home/$USER/.local/bin" "/home/$USER/.emacs.d/bin" "/home/$USER/.scripts")
+path+=('/var/lib/flatpak/exports/bin' "/home/$USER/.cargo/bin" "/home/$USER/.local/bin" "/home/$USER/.emacs.d/bin" "/home/$USER/.scripts" "/home/$USER/.local/share/gem/ruby/3.0.0/bin")
 # export to sub-processes (make it inherited by child processes)
 export PATH
-export EDITOR=/usr/bin/nvim
