@@ -46,6 +46,7 @@ alias fz='xdg-open $(fzf --height 40% --reverse)'
 
 # -- Path --
 # append
-path+=('/var/lib/flatpak/exports/bin' "/home/$USER/.cargo/bin" "/home/$USER/.local/bin" "/home/$USER/.emacs.d/bin" "/home/$USER/.scripts" "/home/$USER/.local/share/gem/ruby/3.0.0/bin")
+path+=('/var/lib/flatpak/exports/bin' "/home/$USER/.cargo/bin" "/home/$USER/.local/bin" "/home/$USER/.scripts" "/home/$USER/.local/share/gem/ruby/3.0.0/bin")
 # export to sub-processes (make it inherited by child processes)
 export PATH
+export EDITOR="nvim"

@@ -2,14 +2,21 @@
 dwm.normfgcolor: 	#bbbbbb
 dwm.normbgcolor: 	#222222
 dwm.normbordercolor: 	#444444
-dwm.selfgcolor: 	#efefef
+! dwm.selfgcolor: 	#efefef
 !! red
 ! dwm.selbgcolor: 	#a1454a
 !! original
 ! dwm.selbgcolor: 	#005577
+
+
 !! dark
-dwm.selbgcolor: 	#222222
-dwm.selbordercolor: 	#e7e7e7
+! dwm.selbgcolor: 	#222222
+!! white
+dwm.selbgcolor: #faf0e2
+dwm.selfgcolor: #222222
+
+! dwm.selbordercolor: #e7e7e7
+dwm.selbordercolor: #faf0e2
 
 !! Note: st settings currently have no effect without the xrdb patch.
 ! st.termname: st-256color
