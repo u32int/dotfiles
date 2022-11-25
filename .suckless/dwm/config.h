@@ -98,7 +98,7 @@ static const Layout layouts[] = {
 // apps
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-ic", "-m", dmenumon, "-fn", dmenufont,
-	"-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selbgcolor,
+	"-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor,
 	"-nhb", normbgcolor, "-nhf", selbordercolor, "-shb", selbordercolor, "-shf", normbgcolor, NULL };
 static const char *termcmd[]  = { "st", "-e", "/usr/bin/env", "zsh", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
