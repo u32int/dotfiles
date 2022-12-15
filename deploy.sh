@@ -74,7 +74,7 @@ dwm_desktop_entry="
 Encoding=UTF-8\n\
 Name=dwm\n\
 Comment=Dynamic window manager\n\
-Exec=/home/$USER/.scripts/dwm-all.sh\n\
+Exec=/home/$USER/.scripts/execdwm.sh\n\
 Icon=dwm\n\
 Type=XSession"
 sudo mkdir -p /usr/share/xsessions
