@@ -3,10 +3,11 @@
 COLOR_RED="\e[0;31m"
 COLOR_GREEN="\e[0;32m"
 COLOR_YELLOW="\e[0;33m"
+COLOR_BLUE="\e[0;34m"
 COLOR_RESET="\e[0m"
 
 print_info () {
-    echo -e "[INFO] $1"
+    echo -e "[${COLOR_BLUE}INFO${COLOR_RESET}] $1"
 }
 
 print_warn () {
@@ -14,11 +15,11 @@ print_warn () {
 }
 
 print_success () {
-    echo -e "[$COLOR_GREEN$COLOR_RESET] $1"
+    echo -e "[${COLOR_GREEN}SUCCESS${COLOR_RESET}] $1"
 }
 
 print_failure () {
-    echo -e "[$COLOR_RED$COLOR_RESET] $1"
+    echo -e "[${COLOR_RED}FAIL${COLOR_RESET}] $1"
 }
 
 FAILED_SEGMENTS=""
@@ -33,6 +34,27 @@ check_print_success() {
         print_failure "$2"
         FAILED_SEGMENTS+="$2, "
     fi
+}
+
+install_dwm() {
+    dwm_desktop_entry="
+    [Desktop Entry]\n\
+    Encoding=UTF-8\n\
+    Name=dwm\n\
+    Comment=Dynamic window manager\n\
+    Exec=/home/$USER/.scripts/execdwm.sh\n\
+    Icon=dwm\n\
+    Type=XSession"
+    sudo mkdir -p /usr/share/xsessions
+    echo -e $dwm_desktop_entry | sudo tee /usr/share/xsessions/dwm.desktop
+    check_print_success $? "create dwm.desktop"
+
+    (cd .suckless/dwm; sudo make install
+    check_print_success $? "install dwm"
+    cd .suckless/st; sudo make install
+    check_print_success $? "install st"
+    cd .suckless/dmenu; sudo make install
+    check_print_success $? "install dmenu")
 }
 
 print_info "Starting.."
@@ -69,24 +91,15 @@ fi
 # the return value to determine if software installation succeeded.
 check_print_success $? "software installation"
 
-dwm_desktop_entry="
-[Desktop Entry]\n\
-Encoding=UTF-8\n\
-Name=dwm\n\
-Comment=Dynamic window manager\n\
-Exec=/home/$USER/.scripts/execdwm.sh\n\
-Icon=dwm\n\
-Type=XSession"
-sudo mkdir -p /usr/share/xsessions
-echo -e $dwm_desktop_entry | sudo tee /usr/share/xsessions/dwm.desktop
-check_print_success $? "create dwm.desktop"
-
-cd .suckless/dwm; sudo make install
-check_print_success $? "install dwm"
-cd .suckless/st; sudo make install
-check_print_success $? "install st"
-cd .suckless/dmenu; sudo make install
-check_print_success $? "install dmenu"
+while true; do
+    echo "Install dwm, dmenu and st? [y/n]" 
+    read yn
+    case $yn in
+        [Yy]* ) install_dwm; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 mkdir -p /home/$USER/.config
 mkdir -p /home/$USER/.scripts
@@ -95,7 +108,7 @@ stow .
 check_print_success $? "stow"
 
 print_info "Installation finished!"
-if ! [[ -z ${#FAILED_SEGMENTS} ]]; then
+if [ ! FAILED_SEGMENTS ]; then
     FAILED_SEGMENTS=${FAILED_SEGMENTS%,*}
     print_warn "FAILED segments:$COLOR_RED $FAILED_SEGMENTS"
 fi
