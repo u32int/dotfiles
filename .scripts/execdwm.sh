@@ -5,7 +5,6 @@ lxsession &
 xset r rate 300 50 &
 sh ~/.fehbg &
 killall dwm-status; dwm-status &
-# picom &
 
 xrdb ~/.Xdefaults
 

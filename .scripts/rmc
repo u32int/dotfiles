@@ -2,3 +2,4 @@
 
 killall emacs
 emacs --daemon
+sh ~/.scripts/emc &

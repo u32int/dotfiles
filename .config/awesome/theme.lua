@@ -22,6 +22,7 @@ theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(3)
+theme.gap_single_client = false
 theme.border_normal = "#444444"
 theme.border_focus  = "#6b6c7a"
 theme.border_marked = "#91231c"
@@ -65,8 +66,6 @@ theme.titlebar_maximized_button_normal_inactive = themes_path.."default/titlebar
 theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
-
--- theme.wallpaper = "~/img/wall/end_of_summer.jpg"
 
 theme.tasklist_disable_icon = true
 

@@ -42,6 +42,9 @@ set __fish_git_prompt_showstashstate ''
 set __fish_git_prompt_showupstream 'none'
 set -g fish_prompt_pwd_dir_length 3
 
+alias py="python3"
+alias nb="newsboat"
+
 abbr -a e nvim
 abbr -a r ranger
 abbr -a g git

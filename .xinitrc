@@ -30,5 +30,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-exec ~/.scripts/dwm-apps.sh &
-exec ~/.scripts/dwm-loop.sh
+exec ~/.scripts/execdwm.sh

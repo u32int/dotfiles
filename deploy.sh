@@ -37,6 +37,24 @@ check_print_success() {
 }
 
 install_dwm() {
+    if [ ! -d "/home/$USER/.suckless" ]; then
+        mkdir -p /home/$USER/.suckless
+        (cd /home/$USER/.suckless
+        git clone https://github.com/u32int/dwm
+        check_print_success $? "git clone dwm"
+        git clone https://github.com/u32int/st
+        check_print_success $? "git clone st"
+        git clone https://github.com/u32int/dmenu
+        check_print_success $? "git clone dmenu")
+    fi
+
+    (cd /home/$USER/.suckless/dwm; sudo make install
+    check_print_success $? "install dwm"
+    cd /home/$USER/.suckless/st; sudo make install
+    check_print_success $? "install st"
+    cd /home/$USER/.suckless/dmenu; sudo make install
+    check_print_success $? "install dmenu")
+
     dwm_desktop_entry="
     [Desktop Entry]\n\
     Encoding=UTF-8\n\
@@ -48,13 +66,6 @@ install_dwm() {
     sudo mkdir -p /usr/share/xsessions
     echo -e $dwm_desktop_entry | sudo tee /usr/share/xsessions/dwm.desktop
     check_print_success $? "create dwm.desktop"
-
-    (cd .suckless/dwm; sudo make install
-    check_print_success $? "install dwm"
-    cd .suckless/st; sudo make install
-    check_print_success $? "install st"
-    cd .suckless/dmenu; sudo make install
-    check_print_success $? "install dmenu")
 }
 
 print_info "Starting.."

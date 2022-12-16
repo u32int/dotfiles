@@ -1,3 +1,5 @@
+Xft.dpi: 95
+
 !! dwm default
 dwm.normfgcolor: 	#bbbbbb
 dwm.normbgcolor: 	#222222
